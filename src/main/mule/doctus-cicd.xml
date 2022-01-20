@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="1d152555-1174-4787-a57d-67ac1bbe89ae" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="doctus-cicdFlow" doc:id="48fc1e3a-6678-4e29-8962-77b55aae1ef1" >
+		<http:listener doc:name="Listener" doc:id="b9623fc8-e108-4348-82b6-4a892377a8b1" config-ref="HTTP_Listener_config" path="/github"/>
+		<logger level="INFO" doc:name="Logger" doc:id="5cdf8a77-a435-459a-b2e5-5ad981f462e9" message="hello"/>
+	</flow>
+</mule>
